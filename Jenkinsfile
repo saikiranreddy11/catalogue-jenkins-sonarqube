@@ -16,5 +16,10 @@ pipeline{
                 sh "sonar-scanner"
             }
         }
+        stage("deploy"){
+            steps{
+                sh 'echo "deploying the catalogue"'
+            }
+        }
     }
 }
