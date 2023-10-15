@@ -24,6 +24,26 @@ pipeline{
             sh 'zip -r catalogue.zip ./*  --exclude=.git --exclude=catalogue.zip '
             }  
         }
+        stage("uploading the artifact"){
+            steps{
+                nexusArtifactUploader {
+                nexusVersion('nexus3')
+                protocol('http')
+                nexusUrl('34.226.202.247:808/')
+                groupId('com.saikiransudhireddy')
+                version("1.0.0")
+                repository('catalogue')
+                credentialsId('nexas-auth')
+                artifact {
+                    artifactId('catalogue')
+                    type('zip')
+                    //classifier('debug')
+                    file('catalogue.zip')
+                }
+                    
+  }
+            }
+        }
         stage("deploy"){
             steps{
                 sh 'echo "deploying the catalogue"'
@@ -34,5 +54,5 @@ pipeline{
     //     always{
     //         deleteDir()
     //     }
-    // }
+    // }    
 }
