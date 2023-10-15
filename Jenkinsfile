@@ -4,7 +4,9 @@ pipeline{
             label "AGENT"
         }
     }
-
+    options {
+        ansiColor('xterm')
+    }
     stages{
         stage("Installing dependecies"){
             steps{
