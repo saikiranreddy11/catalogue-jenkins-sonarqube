@@ -21,7 +21,7 @@ pipeline{
         stage("zipping the files"){
             steps{
             sh 'echo "zipping the files"'
-            sh 'zip -r ./* catalogue.zip --exclude=.git --exclude=catalogue.zip '
+            sh 'zip -r catalogue.zip ./*  --exclude=.git --exclude=catalogue.zip '
             }  
         }
         stage("deploy"){
