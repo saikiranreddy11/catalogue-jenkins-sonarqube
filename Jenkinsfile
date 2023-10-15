@@ -21,7 +21,7 @@ pipeline{
         stage("zipping the files"){
             steps{
             sh 'echo "zipping the files"'
-            sh 'zip -r ./* '
+            sh 'zip -r ./* catalogue.zip --exclude=.git --exclude=catalogue.zip '
             }  
         }
         stage("deploy"){
@@ -30,9 +30,9 @@ pipeline{
             }
         }
     }
-    post{
-        always{
-            deleteDir()
-        }
-    }
+    // post{
+    //     always{
+    //         deleteDir()
+    //     }
+    // }
 }
