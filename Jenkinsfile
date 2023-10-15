@@ -33,7 +33,7 @@ pipeline{
         groupId: 'com.saikiransudhireddy',
         version: '1.0.0',
         repository: 'catalogue',
-        credentialsId: 'nexus-auth',
+        credentialsId: 'nexas-auth',
         artifacts: [
             [artifactId: 'catalogue',
              classifier: '',
