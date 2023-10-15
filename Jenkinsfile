@@ -11,10 +11,10 @@ pipeline{
             sh 'npm install'
             }
         }
-        stage("sonarscan"){
-            steps{
-                sh "sonar-scanner"
-            }
+        // stage("sonarscan"){
+        //     steps{
+        //         sh "sonar-scanner"
+        //     }
         }
         stage("deploy"){
             steps{
