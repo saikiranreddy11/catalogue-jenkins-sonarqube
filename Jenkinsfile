@@ -18,7 +18,7 @@ pipeline{
         //}
         stage("zipping the files"){
             sh 'echo "zipping the files"'
-            zip -r "C:\Users\saiki\OneDrive\Desktop\devops\repos\catalogue\*" catalogue.zip  
+            zip -r "C:/Users/saiki/OneDrive/Desktop/devops/repos/catalogue/*" catalogue.zip  
         }
         stage("deploy"){
             steps{
