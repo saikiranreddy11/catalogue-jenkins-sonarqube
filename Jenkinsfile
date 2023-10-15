@@ -19,7 +19,7 @@ pipeline{
         stage("zipping the files"){
             steps{
             sh 'echo "zipping the files"'
-            sh 'zip -r "C:\\Users\\saiki\\OneDrive\\Desktop\\devops\\repos\\catalogue\\*" '
+            sh 'zip -r "./*" '
             }  
         }
         stage("deploy"){
