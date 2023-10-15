@@ -31,11 +31,11 @@ pipeline{
         protocol: 'http',
         nexusUrl: '34.226.202.247:8081/',
         groupId: 'com.saikiransudhireddy',
-        version: 1.0.0,
+        version: '1.0.0',
         repository: 'catalogue',
         credentialsId: 'nexus-auth',
         artifacts: [
-            [artifactId: catalogue,
+            [artifactId: 'catalogue',
              classifier: '',
              file: 'catalogue.zip',
              type: 'zip']
