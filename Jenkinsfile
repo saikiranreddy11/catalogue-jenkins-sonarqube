@@ -12,7 +12,7 @@ pipeline{
     options {
         ansiColor('xterm')
     }
-    //def catalogueversion = [string(name:'version',value:"$version")]
+    
 
     stages{
         stage("Installing dependecies"){
@@ -30,11 +30,11 @@ pipeline{
             }
 
         }
-        stage("sonarscan"){
-            steps{
-                sh "sonar-scanner"
-            }
-        }
+        // stage("sonarscan"){
+        //     steps{
+        //         sh "sonar-scanner"
+        //     }
+        // }
         stage("zipping the files"){
             steps{
             sh 'echo "zipping the files"'
@@ -65,7 +65,8 @@ pipeline{
                 sh 'echo "deploying the catalogue"'
                 script {
                     // Build the downstream freestyle project
-                    build job: '../catalogue-deploy', wait: true
+                    def catalogueversion = [string(name:'version',value:"$version")]
+                    build job: '../catalogue-deploy', wait: true, parameters: catalogueversion
                 }
             }
         }
