@@ -12,7 +12,7 @@ pipeline{
     options {
         ansiColor('xterm')
     }
-    def catalogueversion = [string(name:'version',value:"$version")]
+    //def catalogueversion = [string(name:'version',value:"$version")]
 
     stages{
         stage("Installing dependecies"){
@@ -65,7 +65,7 @@ pipeline{
                 sh 'echo "deploying the catalogue"'
                 script {
                     // Build the downstream freestyle project
-                    build job: '../catalogue-deploy', parameters: "${catalogueversion}"
+                    build job: '../catalogue-deploy', parameters: "${version}"
                 }
             }
         }
