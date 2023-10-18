@@ -44,7 +44,7 @@ pipeline{
                     protocol: 'http',
                     nexusUrl: '10.40.30.177:8081/',
                     groupId: 'com.saikiransudhireddy',
-                    version: ${version},
+                    version: '${version}'',
                     repository: 'catalogue',
                     credentialsId: 'nexus-auth',
                     artifacts: [
