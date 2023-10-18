@@ -65,7 +65,7 @@ pipeline{
                 sh 'echo "deploying the catalogue"'
                 script {
                     // Build the downstream freestyle project
-                    build job: '../catalogue-deploy', parameters: "${version}"
+                    build job: '../catalogue-deploy', wait: true
                 }
             }
         }
@@ -76,3 +76,5 @@ pipeline{
     //     }
     // }    
 }
+
+//parameters: "${version}"
