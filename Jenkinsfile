@@ -13,11 +13,11 @@ pipeline{
             sh 'npm install'
             }
         }
-        // stage("sonarscan"){
-        //     steps{
-        //         sh "sonar-scanner"
-        //     }
-        //}
+        stage("sonarscan"){
+            steps{
+                sh "sonar-scanner"
+            }
+        }
         stage("zipping the files"){
             steps{
             sh 'echo "zipping the files"'
@@ -29,11 +29,11 @@ pipeline{
                 nexusArtifactUploader(
         nexusVersion: 'nexus3',
         protocol: 'http',
-        nexusUrl: '34.226.202.247:8081/',
+        nexusUrl: '10.40.30.177:8081/',
         groupId: 'com.saikiransudhireddy',
         version: '1.0.1',
         repository: 'catalogue',
-        credentialsId: 'nexas-auth',
+        credentialsId: 'nexus-auth',
         artifacts: [
             [artifactId: 'catalogue',
              classifier: '',
