@@ -4,12 +4,16 @@ pipeline{
             label "AGENT"
         }
     }
+    
+    
     environment{
         version = ''
     }
     options {
         ansiColor('xterm')
     }
+    def catalogueversion = [string(name:'version',value:"$version")]
+
     stages{
         stage("Installing dependecies"){
             steps{
@@ -59,7 +63,10 @@ pipeline{
         stage("deploy"){
             steps{
                 sh 'echo "deploying the catalogue"'
-                
+                script {
+                    // Build the downstream freestyle project
+                    build job: '../catalogue-deploy', parameters: "${catalogueversion}"
+                }
             }
         }
     }
