@@ -4,6 +4,9 @@ pipeline{
             label "AGENT"
         }
     }
+    environment{
+        version = ''
+    }
     options {
         ansiColor('xterm')
     }
@@ -17,7 +20,7 @@ pipeline{
             steps{
                 script {
                     def packageJson = readJSON file: 'package.json'
-                    def version = packageJson.version
+                    version = packageJson.version
                     echo "The version from package.json is: ${version}"
                 }
             }
@@ -56,6 +59,7 @@ pipeline{
         stage("deploy"){
             steps{
                 sh 'echo "deploying the catalogue"'
+                echo "The version from package.json is: ${version}"
             }
         }
     }
