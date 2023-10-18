@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const express = require('express');
 const pino = require('pino');
 const expPino = require('express-pino-logger');
-
+//adding the comment for the feature 2
 const logger = pino({
     level: 'info',
     prettyPrint: false,
