@@ -5,7 +5,7 @@ pipeline{
         }
     }
     options {
-        ansiColor('xterm')
+        //ansiColor('xterm')
     }
     stages{
         stage("Installing dependecies"){
