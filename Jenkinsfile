@@ -4,9 +4,9 @@ pipeline{
             label "AGENT"
         }
     }
-    // options {
-    //     //ansiColor('xterm')
-    // }
+    options {
+        ansiColor('xterm')
+    }
     stages{
         stage("Installing dependecies"){
             steps{
@@ -27,18 +27,18 @@ pipeline{
         stage("uploading the artifact"){
             steps{
                 nexusArtifactUploader(
-        nexusVersion: 'nexus3',
-        protocol: 'http',
-        nexusUrl: '10.40.30.177:8081/',
-        groupId: 'com.saikiransudhireddy',
-        version: '1.0.1',
-        repository: 'catalogue',
-        credentialsId: 'nexus-auth',
-        artifacts: [
-            [artifactId: 'catalogue',
-             classifier: '',
-             file: 'catalogue.zip',
-             type: 'zip']
+                    nexusVersion: 'nexus3',
+                    protocol: 'http',
+                    nexusUrl: '10.40.30.177:8081/',
+                    groupId: 'com.saikiransudhireddy',
+                    version: '1.0.1',
+                    repository: 'catalogue',
+                    credentialsId: 'nexus-auth',
+                    artifacts: [
+                        [artifactId: 'catalogue',
+                            classifier: '',
+                            file: 'catalogue.zip',
+                            type: 'zip']
         ]
      )
             }
