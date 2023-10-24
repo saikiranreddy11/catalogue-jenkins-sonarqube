@@ -5,4 +5,4 @@ def configMap = [
     "application_type": "nodeJSVMCI",
      "component": "catalogue"]
 
-pipelineDecission(configMap)
+pipelineDecission.call(configMap)
