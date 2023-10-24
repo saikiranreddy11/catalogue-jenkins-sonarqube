@@ -2,7 +2,7 @@
 @Library('roboshop-library') _
 
 def configMap = [
-    "application_type": "nodejsVMCI",
+    "application_type": "nodeJSVMCI",
      "component": "catalogue"]
 
 pipelineDecission(configMap)
